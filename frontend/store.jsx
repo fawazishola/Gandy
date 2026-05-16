@@ -15,20 +15,6 @@ const SEEDED_REPOSITORIES = [
     branch: "master",
     url: "https://github.com/BeanstalkFarms/Beanstalk",
     description: "Beanstalk protocol (pre-exploit governance)"
-  },
-  {
-    id: 5,
-    name: "temp_beanstalk",
-    org: "local",
-    type: "Governance",
-    status: "connected",
-    health: 45,
-    lastVerified: "Never",
-    prs: 1,
-    frameworks: 11,
-    branch: "detached HEAD",
-    url: "./temp_beanstalk",
-    description: "Local Beanstalk checkout used for the governance exploit demo"
   }
 ];
 
@@ -124,6 +110,15 @@ const SEEDED_REPORTS = [
     failReason: "Flash-loan governance takeover: current-block voting power can execute a malicious diamond cut"
   }
 ];
+
+function migrateState(sourceState) {
+  // v1 → v2: remove the temp_beanstalk local repo (duplicate)
+  const repositories = Array.isArray(sourceState.repositories)
+    ? sourceState.repositories.filter((r) => !(r && r.name === "temp_beanstalk" && r.org === "local"))
+    : sourceState.repositories;
+  if (repositories.length === (sourceState.repositories || []).length) return sourceState;
+  return { ...sourceState, repositories };
+}
 
 function ensureSeedData(sourceState) {
   const repositories = Array.isArray(sourceState.repositories) ? sourceState.repositories : [];
@@ -326,7 +321,7 @@ function AppProvider({ children }) {
     if (!saved) return initialState;
 
     try {
-      return ensureSeedData(JSON.parse(saved));
+      return ensureSeedData(migrateState(JSON.parse(saved)));
     } catch (err) {
       console.warn("Failed to parse saved Gandy state; using defaults", err);
       return initialState;

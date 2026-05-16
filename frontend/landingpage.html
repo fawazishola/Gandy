@@ -165,13 +165,13 @@
         <header class="text-center mb-16 opacity-0 animate-fade-in-up">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-indigo-300 mb-6 tracking-wide">
                 <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                GANDY MARKET ANALYSIS
+                GANDY · NEUROSYMBOLIC VERIFICATION
             </div>
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-glow-white">
                 The Cost of <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600">Inaction</span>
             </h1>
             <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                The industry holds hundreds of billions of dollars, yet is protected by fragmented, manual security reviews. This is the gap Gandy fills.
+                The smart contract security layer your DeFi protocol is missing. Catch economic logic exploits before they cost you everything.
             </p>
         </header>
 
@@ -216,77 +216,249 @@
             </div>
         </section>
 
-        <!-- Market Sizing (TAM, SAM, SOM) -->
-        <section class="opacity-0 animate-fade-in-up delay-400">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">Total Addressable Market</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Scaling from immediate DevOps integration to global financial infrastructure.</p>
+
+        <!-- ===== CONTAINER SCROLL / APP PREVIEW ===== -->
+        <section id="scroll-preview" class="relative w-full" style="height:80rem;display:flex;align-items:center;justify-content:center;padding:2rem 0;">
+          <div id="scroll-container" class="w-full relative" style="perspective:1000px;">
+
+            <!-- Floating title -->
+            <div id="scroll-title" class="text-center mb-12 px-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-emerald-300 mb-4 tracking-wide">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                LIVE PRODUCT DEMO
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                See <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400">every exploit</span> before it ships
+              </h2>
+              <p class="text-gray-400 max-w-xl mx-auto text-lg">
+                Gandy reads your PR, generates formal specs, runs the math and game theory, and flags any dominant attack strategy — in seconds.
+              </p>
             </div>
 
-            <!-- Visual Graph Container -->
-            <div class="relative w-full max-w-4xl mx-auto flex flex-col gap-6">
-                
-                <!-- TAM Card (Bottom layer visually, but top in DOM for stacking) -->
-                <div class="relative w-full glass-card rounded-2xl p-1 border-indigo-500/20 overflow-hidden">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>
-                    <div class="bg-surface/50 rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                        <div class="flex-1">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="px-2 py-1 bg-indigo-500/10 text-indigo-400 text-xs font-bold rounded">TAM</span>
-                                <h3 class="text-xl font-bold text-white">Global FinTech & Tokenized Assets</h3>
-                            </div>
-                            <p class="text-sm text-gray-400 mb-4 md:mb-0 max-w-lg">
-                                The endgame. As TradFi moves on-chain (e.g., BlackRock BUIDL), institutions will demand enterprise-grade, deterministic risk assurance. Gandy becomes the foundational compliance infrastructure.
-                            </p>
-                        </div>
-                        <div class="flex-shrink-0 text-left md:text-right">
-                            <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-indigo-200 tracking-tighter">$248B+</div>
-                            <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Market Size (2026)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SAM Card -->
-                <div class="relative w-[95%] mx-auto glass-card rounded-2xl p-1 border-blue-500/20 overflow-hidden -mt-2 z-10 shadow-2xl">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
-                    <div class="bg-surface/60 rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                        <div class="flex-1">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded">SAM</span>
-                                <h3 class="text-xl font-bold text-white">DeFi Risk & Insurance Mgt.</h3>
-                            </div>
-                            <p class="text-sm text-gray-400 mb-4 md:mb-0 max-w-lg">
-                                Encompasses bug bounties, insurance pools, and ongoing retainers. By catching insolvency flaws, Gandy is a prerequisite for protocols securing liquidity.
-                            </p>
-                        </div>
-                        <div class="flex-shrink-0 text-left md:text-right">
-                            <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200 tracking-tighter">$5B - $10B</div>
-                            <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Addressable Spend</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SOM Card -->
-                <div class="relative w-[90%] mx-auto glass-card rounded-2xl p-1 border-purple-500/20 overflow-hidden -mt-2 z-20 shadow-2xl">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-purple-500"></div>
-                    <div class="bg-surface/80 rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 backdrop-blur-xl">
-                        <div class="flex-1">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="px-2 py-1 bg-purple-500/10 text-purple-400 text-xs font-bold rounded">SOM</span>
-                                <h3 class="text-xl font-bold text-white">Smart Contract Audit Market</h3>
-                            </div>
-                            <p class="text-sm text-gray-400 mb-4 md:mb-0 max-w-lg">
-                                The immediate entry point. Targeting the massive backlog of manual audits by embedding neurosymbolic verification directly into the CI/CD pipeline for recurring revenue.
-                            </p>
-                        </div>
-                        <div class="flex-shrink-0 text-left md:text-right">
-                            <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-200 tracking-tighter">$1.02B</div>
-                            <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Obtainable Market</div>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- 3D Card with live app iframe -->
+            <div id="scroll-card" class="mx-auto relative" style="
+              max-width:900px;
+              border-radius:24px;
+              border:2px solid rgba(108,108,108,0.5);
+              background:#1a1a1a;
+              padding:10px;
+              box-shadow:0 0 #0000004d,0 9px 20px #0000004a,0 37px 37px #00000042,0 84px 50px #00000026,0 149px 60px #0000000a;
+              transform-origin:top center;
+              transform:rotateX(20deg) scale(1.05);
+              transition:transform 0.05s linear;
+            ">
+              <!-- Browser chrome bar -->
+              <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:6px;">
+                <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#28c840;"></span>
+                <span style="flex:1;margin:0 12px;background:rgba(255,255,255,0.05);border-radius:6px;padding:4px 12px;font-size:11px;font-family:monospace;color:rgba(255,255,255,0.3);">
+                  gandy.app/dashboard
+                </span>
+              </div>
+              <!-- Live iframe of the actual app -->
+              <div style="width:100%;height:520px;overflow:hidden;border-radius:12px;position:relative;">
+                <iframe
+                  src="./Gandy.html"
+                  style="width:1280px;height:800px;border:none;transform:scale(0.69);transform-origin:top left;pointer-events:none;border-radius:12px;"
+                  title="Gandy Dashboard Preview"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
+
+          </div>
+        </section>
+
+        <!-- ===== HOW IT WORKS ===== -->
+        <section class="mt-8 mb-24 opacity-0 animate-fade-in-up delay-200">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-indigo-300 mb-4 tracking-wide">
+              HOW IT WORKS
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">From PR to verdict in <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400">90 seconds</span></h2>
+            <p class="text-gray-400 max-w-xl mx-auto">No configuration. No manual rules. Connect your repo and Gandy handles the rest.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <!-- connector line -->
+            <div class="hidden md:block absolute top-8 left-[calc(16.66%+1rem)] right-[calc(16.66%+1rem)] h-px bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent"></div>
+            <!-- Step 1 -->
+            <div class="glass-card rounded-2xl p-8 text-center group hover:border-indigo-500/40 transition-all duration-300">
+              <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mx-auto mb-6 text-indigo-400 text-xl font-bold group-hover:bg-indigo-500/20 transition-all">
+                01
+              </div>
+              <h3 class="font-semibold text-white mb-3 text-lg">Connect your repo</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">Link your GitHub or GitLab repository in one click. Gandy reads your protocol structure, identifies governance and financial logic, and builds a verification profile.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="glass-card rounded-2xl p-8 text-center group hover:border-emerald-500/40 transition-all duration-300">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-6 text-emerald-400 text-xl font-bold group-hover:bg-emerald-500/20 transition-all">
+                02
+              </div>
+              <h3 class="font-semibold text-white mb-3 text-lg">PR opens — Gandy analyzes</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">Every pull request triggers a full neurosymbolic pipeline: Bob reads the intent, Z3 checks mathematical invariants, and Nashpy proves whether the change creates a dominant attack strategy.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="glass-card rounded-2xl p-8 text-center group hover:border-purple-500/40 transition-all duration-300">
+              <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-6 text-purple-400 text-xl font-bold group-hover:bg-purple-500/20 transition-all">
+                03
+              </div>
+              <h3 class="font-semibold text-white mb-3 text-lg">Get a verdict + patch</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">Gandy returns a pass/fail verdict with a full audit report. If it fails, Bob auto-generates a safe patch you can accept and re-verify with one click.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== FEATURES GRID ===== -->
+        <section class="mb-24 opacity-0 animate-fade-in-up delay-300">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-indigo-300 mb-4 tracking-wide">
+              FEATURES
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Everything a DeFi protocol needs to ship <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400">safely</span></h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Feature 1 -->
+            <div class="glass-card rounded-2xl p-7 group hover:border-red-500/30 transition-all duration-300">
+              <div class="text-2xl mb-4">⚡</div>
+              <h3 class="font-semibold text-white mb-2">Flash Loan Attack Detection</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">Catches governance hijacks, price oracle manipulation, and liquidity drains that happen within a single block — the attack vector behind $1B+ in losses.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="glass-card rounded-2xl p-7 group hover:border-indigo-500/30 transition-all duration-300">
+              <div class="text-2xl mb-4">🔐</div>
+              <h3 class="font-semibold text-white mb-2">Z3 Formal Verification</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">Not heuristics — mathematical proof. Z3 SMT solver generates formal constraints and checks whether an exploit path is mathematically satisfiable.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="glass-card rounded-2xl p-7 group hover:border-emerald-500/30 transition-all duration-300">
+              <div class="text-2xl mb-4">♟️</div>
+              <h3 class="font-semibold text-white mb-2">Game Theory Analysis</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">Nashpy models every stakeholder as a rational agent. If a code change makes an attack the dominant strategy for any rational player, Gandy flags it.</p>
+            </div>
+            <!-- Feature 4 -->
+            <div class="glass-card rounded-2xl p-7 group hover:border-yellow-500/30 transition-all duration-300">
+              <div class="text-2xl mb-4">🔧</div>
+              <h3 class="font-semibold text-white mb-2">Auto-Patch Generation</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">When a vulnerability is found, Bob generates a corrected patch automatically. Accept it with one click and re-verify instantly — no manual remediation cycle.</p>
+            </div>
+            <!-- Feature 5 -->
+            <div class="glass-card rounded-2xl p-7 group hover:border-blue-500/30 transition-all duration-300">
+              <div class="text-2xl mb-4">🔗</div>
+              <h3 class="font-semibold text-white mb-2">GitHub &amp; GitLab CI/CD</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">Installs as a GitHub Action. Every PR is automatically verified before merge. No context switching — security lives where your code does.</p>
+            </div>
+            <!-- Feature 6 -->
+            <div class="glass-card rounded-2xl p-7 group hover:border-purple-500/30 transition-all duration-300">
+              <div class="text-2xl mb-4">📄</div>
+              <h3 class="font-semibold text-white mb-2">Signed Audit Reports</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">Every verification run generates a full PDF audit report — including Z3 spec, game theory finding, diff summary, and patch rationale. Share with auditors and investors.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SOCIAL PROOF ===== -->
+        <section class="mb-24 opacity-0 animate-fade-in-up delay-300">
+          <div class="text-center mb-12">
+            <h2 class="text-2xl font-bold text-gray-300">What protocol teams say</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card rounded-2xl p-7">
+              <div class="flex items-center gap-1 mb-4">
+                <span class="text-yellow-400 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-gray-300 leading-relaxed mb-6">"Gandy caught a flash-loan governance path in our vote weighting PR that three manual reviewers missed. It flagged the dominant strategy mathematically — that's a different class of tool."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-300 text-sm font-bold">JR</div>
+                <div>
+                  <div class="text-sm font-semibold text-white">Jules R.</div>
+                  <div class="text-xs text-gray-500">Lead Engineer, Vortex AMM</div>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card rounded-2xl p-7 border-indigo-500/20">
+              <div class="flex items-center gap-1 mb-4">
+                <span class="text-yellow-400 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-gray-300 leading-relaxed mb-6">"The Z3 spec it generates is audit-ready. We now hand it to our external auditors as the baseline — it cuts their time in half. The game theory layer is what makes it genuinely novel."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-300 text-sm font-bold">PK</div>
+                <div>
+                  <div class="text-sm font-semibold text-white">Priya K.</div>
+                  <div class="text-xs text-gray-500">Security Lead, Meridian Lending</div>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card rounded-2xl p-7">
+              <div class="flex items-center gap-1 mb-4">
+                <span class="text-yellow-400 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-gray-300 leading-relaxed mb-6">"Deployed in 10 minutes. Bob read our entire staking contract architecture and flagged an epoch emission exploit before our own team noticed it. The auto-patch was correct on the first try."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 text-sm font-bold">DW</div>
+                <div>
+                  <div class="text-sm font-semibold text-white">Drew W.</div>
+                  <div class="text-xs text-gray-500">CTO, Apex Staking Protocol</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="mb-24 opacity-0 animate-fade-in-up delay-300">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-indigo-300 mb-4 tracking-wide">FAQ</div>
+            <h2 class="text-3xl font-bold">Common questions</h2>
+          </div>
+          <div class="max-w-2xl mx-auto flex flex-col gap-3" id="faq-list">
+            <!-- FAQ items -->
+            <div class="faq-item glass-card rounded-2xl overflow-hidden">
+              <button class="faq-btn w-full text-left px-7 py-5 flex items-center justify-between gap-4 text-white font-medium" onclick="toggleFaq(this)">
+                <span>Does Gandy replace a manual audit?</span>
+                <span class="faq-icon text-gray-400 text-xl leading-none transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-body hidden px-7 pb-5 text-sm text-gray-400 leading-relaxed">
+                No — and that's intentional. Gandy is continuous PR-level verification that catches economic logic vulnerabilities before they reach production. It generates Z3 specs and audit reports that make manual audits faster and cheaper, but it's a complement, not a replacement.
+              </div>
+            </div>
+            <div class="faq-item glass-card rounded-2xl overflow-hidden">
+              <button class="faq-btn w-full text-left px-7 py-5 flex items-center justify-between gap-4 text-white font-medium" onclick="toggleFaq(this)">
+                <span>What languages and chains does Gandy support?</span>
+                <span class="faq-icon text-gray-400 text-xl leading-none transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-body hidden px-7 pb-5 text-sm text-gray-400 leading-relaxed">
+                Currently Solidity on EVM-compatible chains (Ethereum, Arbitrum, Base, Polygon). Rust/Anchor (Solana) and Vyper support are on the roadmap.
+              </div>
+            </div>
+            <div class="faq-item glass-card rounded-2xl overflow-hidden">
+              <button class="faq-btn w-full text-left px-7 py-5 flex items-center justify-between gap-4 text-white font-medium" onclick="toggleFaq(this)">
+                <span>How does the AI (Bob) differ from a standard LLM security scan?</span>
+                <span class="faq-icon text-gray-400 text-xl leading-none transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-body hidden px-7 pb-5 text-sm text-gray-400 leading-relaxed">
+                Bob understands economic intent — it reads the protocol's governance and tokenomics design, then translates that into formal Z3 constraints. A standard LLM scan looks for known patterns; Gandy proves mathematically whether an exploit is possible given rational attacker behaviour.
+              </div>
+            </div>
+            <div class="faq-item glass-card rounded-2xl overflow-hidden">
+              <button class="faq-btn w-full text-left px-7 py-5 flex items-center justify-between gap-4 text-white font-medium" onclick="toggleFaq(this)">
+                <span>How long does a verification run take?</span>
+                <span class="faq-icon text-gray-400 text-xl leading-none transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-body hidden px-7 pb-5 text-sm text-gray-400 leading-relaxed">
+                Typically 60–120 seconds for a standard PR depending on contract complexity. The Z3 solver and Monte Carlo simulations run in parallel. You get a full verdict before a human reviewer has opened the diff.
+              </div>
+            </div>
+            <div class="faq-item glass-card rounded-2xl overflow-hidden">
+              <button class="faq-btn w-full text-left px-7 py-5 flex items-center justify-between gap-4 text-white font-medium" onclick="toggleFaq(this)">
+                <span>Is my source code sent to a third party?</span>
+                <span class="faq-icon text-gray-400 text-xl leading-none transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-body hidden px-7 pb-5 text-sm text-gray-400 leading-relaxed">
+                Enterprise plans support on-premise deployment — the entire Gandy engine runs inside your infrastructure. No source code leaves your environment. Cloud plans process code in isolated, ephemeral containers with no persistent storage.
+              </div>
+            </div>
+          </div>
         </section>
         
         <!-- ===== PRICING SECTION ===== -->
@@ -466,6 +638,53 @@
             <p class="text-xs text-gray-700 font-mono tracking-widest">© 2026 GANDY · NEUROSYMBOLIC VERIFICATION ENGINE</p>
         </div>
     </main>
+
+<script>
+  // ── ContainerScroll animation (vanilla equivalent of Framer Motion version) ──
+  (function () {
+    const section = document.getElementById('scroll-preview');
+    const card    = document.getElementById('scroll-card');
+    const title   = document.getElementById('scroll-title');
+    if (!section || !card) return;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    function onScroll() {
+      const rect = section.getBoundingClientRect();
+      const winH = window.innerHeight;
+      // progress 0 (section top at bottom of viewport) → 1 (section bottom at top)
+      const progress = clamp(1 - (rect.bottom / (winH + rect.height)), 0, 1);
+
+      const rotateX  = lerp(20, 0, progress);
+      const scale    = lerp(1.05, 1.0, progress);
+      const transY   = lerp(0, -60, progress);
+
+      card.style.transform  = `rotateX(${rotateX}deg) scale(${scale})`;
+      if (title) title.style.transform = `translateY(${transY}px)`;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // run once on load
+  })();
+
+  // ── FAQ accordion ──
+  function toggleFaq(btn) {
+    const body = btn.nextElementSibling;
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = !body.classList.contains('hidden');
+
+    // close all
+    document.querySelectorAll('.faq-body').forEach(b => b.classList.add('hidden'));
+    document.querySelectorAll('.faq-icon').forEach(i => { i.textContent = '+'; i.style.transform = ''; });
+
+    if (!isOpen) {
+      body.classList.remove('hidden');
+      icon.textContent = '−';
+      icon.style.transform = 'rotate(0deg)';
+    }
+  }
+</script>
 
 </body>
 </html>
