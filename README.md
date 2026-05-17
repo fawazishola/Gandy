@@ -61,7 +61,7 @@ graph TD
 
 ## 🤖 Built by Bob: Our AI Co-Founder
 To prove the capability of IBM Bob, we didn't just use it in the architecture—**we used IBM Bob to build the entire backend system.** 
-Bob served as our Lead AI Engineer, logging over **150+ CLI interactions** on May 16th to architect, build, and relentlessly attack the Gandy verification framework.
+Bob served as our Lead AI Engineer, logging over **150+ CLI interactions** to architect, build, and relentlessly attack the Gandy verification framework.
 
 **How we used Bob across the entire development lifecycle:**
 - **Core Architecture & Scaffolding**: Bob single-handedly wrote `core/orchestrator.py` (the 8-stage verification loop), `bob_bridge.py` (the sub-process CLI controller), and `parser.py` (the multi-format SMT/JSON regex parser).
