@@ -1,0 +1,35 @@
+{
+  "contract": "GovernanceFacet.sol",
+  "commit": "2bf3a10aa",
+  "exploit_block": 14602790,
+  "exploit_amount": 182000000,
+  "math_layer": {
+    "algebraic": {
+      "status": "passed",
+      "message": "Secure: Attack constraints are unsatisfiable",
+      "details": {
+        "solver": "z3",
+        "output": "(error \"line 49 column 19: logic does not support nonlinear arithmetic\")\nunsat\n(error \"line 66 column 10: model is not available\")",
+        "satisfiable": false,
+        "interpretation": "No attack scenario exists"
+      },
+      "counterexample": null
+    },
+    "differential": {
+      "status": "error",
+      "message": "No function or specification provided",
+      "details": {
+        "spec_type": "dict"
+      },
+      "counterexample": null
+    },
+    "stochastic": {
+      "status": "passed",
+      "message": "Stochastic checks passed",
+      "details": {
+        "iterations": 100000,
+        "steps": 100,
+        "distribution": "normal",
+        "ruin_probability": 0.0,
+        "ruin_threshold": 0,
+        "ruin_passed": 

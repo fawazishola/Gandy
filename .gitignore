@@ -3,58 +3,6 @@ venv/
 __pycache__/
 *.pyc
 *.pyo
-
-# Bob session cache
-bob_sessions/
-api/bob_sessions/
-bob_bridge.py
-
-# Scratch / generated analysis files
-beanstalk_verification_results*.json
-vulnerability_analysis.json
-workflow_*.json
-workflow_*.md
-test_bob_ai.py
-test_loop.py
-game_frameworks.py
-game_frameworks_rewritten.py
-math_frameworks.py
-nashpy_analysis.py
-nashpy_results.json
-staking_game_theory.json
-staking_invariants.smt2
-parser.py
-run_beanstalk_verification.py
-run_beanstalk_verification_fixed.py
-server.pid
-frontend/test.html
-frontend/Gandy\ \(standalone\).html
-frontend/Gandy.standalone-src.html
-frontend/README.md
-
-# Loose Solidity files at root (not Gandy's source)
-/*.sol
-
-# Extra auto-generated docs (keep README.md only)
-BEANSTALK_GOVERNANCE_AUDIT.md
-BEANSTALK_SECURE_CONTRACT_PROPOSAL.md
-BEANSTALK_VERIFICATION_RESULTS.md
-FRAMEWORK_BUG_ANALYSIS.md
-FRAMEWORK_BUG_ANALYSIS_UPDATED.md
-FRONTEND_ACCESS.md
-FRONTEND_REVIEW.md
-GAME_THEORY_ANALYSIS.md
-HACKATHON_DEMO_FINAL.md
-HACKATHON_DEMO_GUIDE.md
-INTEGRATION_ARCHITECTURE.md
-INTEGRATION_QUICKSTART.md
-INTEGRATION_STATUS_REPORT.md
-NASHPY_INTEGRATION_TRACE.md
-TECHNICAL_SUMMARY.md
-
-# Python
-*.pyc
-*.pyo
 *.pyd
 .Python
 *.egg-info/
@@ -62,15 +10,25 @@ dist/
 build/
 .eggs/
 
+# Bob session cache
+bob_sessions/
+api/bob_sessions/
+
+# Temporary run outputs
+server.pid
+*.log
+
+# AI agent folders
+.agents/
+.claude/
+.codex/
+
 # Environment
 .env
 .env.local
 .env.*.local
 
-# Test artifacts
-verifications/test-*.json
-
-# Large demo data (checkout of Beanstalk protocol — not Gandy's code)
+# Large demo data
 temp_beanstalk/
 
 # Node
@@ -87,6 +45,3 @@ Thumbs.db
 .vscode/
 .idea/
 *.iml
-
-# Logs
-*.log

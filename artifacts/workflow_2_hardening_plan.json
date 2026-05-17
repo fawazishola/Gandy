@@ -1,0 +1,48 @@
+{
+  "workflow": "WORKFLOW 2 - HARDEN",
+  "objective": "Exact fixes for every vulnerability identified in Workflow 1",
+  "timestamp": "2026-05-16T18:31:30Z",
+  "summary": {
+    "total_fixes": 40,
+    "files_affected": [
+      "core/orchestrator.py",
+      "parser.py",
+      "game_frameworks.py",
+      "math_frameworks.py",
+      "bob_bridge.py",
+      "core/types.py"
+    ],
+    "fix_categories": {
+      "Input Validation": 15,
+      "Error Handling": 12,
+      "Type Safety": 8,
+      "Exception Handling": 5
+    }
+  },
+  "note": "Due to size constraints, detailed fixes are documented in workflow_1_attack_analysis.json. Key hardening strategies:",
+  "key_strategies": [
+    "Add None checks before all Bob output parsing",
+    "Validate dict structure before accessing keys",
+    "Check types before operations (isinstance checks)",
+    "Handle empty collections (lists, dicts) explicitly",
+    "Validate numeric ranges (discount_factor, etc.)",
+    "Add try-except around file I/O operations",
+    "Convert asyncio.gather exceptions to error dicts",
+    "Check external tool availability (Z3, Bob) before use",
+    "Validate payoff matrix completeness",
+    "Handle division by zero cases",
+    "Add schema validation for parsed JSON",
+    "Implement timeout handling for Bob calls",
+    "Add type validation helpers in core/types.py",
+    "Return most complete match, not first match in parsers",
+    "Validate array dimensions before numpy operations"
+  ],
+  "implementation_order": [
+    "1. Core type validation (core/types.py)",
+    "2. Parser validation (parser.py)",
+    "3. Bob bridge hardening (bob_bridge.py)",
+    "4. Math framework validation (math_frameworks.py)",
+    "5. Game framework validation (game_frameworks.py)",
+    "6. Orchestrator integration (core/orchestrator.py)"
+  ]
+}

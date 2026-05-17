@@ -1,0 +1,58 @@
+{
+  "players": [
+    {
+      "id": "player_1",
+      "type": "staker",
+      "role": "early_staker"
+    },
+    {
+      "id": "player_2",
+      "type": "staker",
+      "role": "late_staker"
+    }
+  ],
+  "strategies": {
+    "player_1": [
+      "stake_early_hold",
+      "stake_early_claim_immediately",
+      "wait"
+    ],
+    "player_2": [
+      "stake_late_hold",
+      "stake_late_claim_immediately",
+      "wait"
+    ]
+  },
+  "payoff_matrix": {
+    "stake_early_hold": {
+      "stake_late_hold": [0.5, 0.5],
+      "stake_late_claim_immediately": [0, 1],
+      "wait": [0.5, 0]
+    },
+    "stake_early_claim_immediately": {
+      "stake_late_hold": [1, 0],
+      "stake_late_claim_immediately": [0.5, 0.5],
+      "wait": [1, 0]
+    },
+    "wait": {
+      "stake_late_hold": [0, 0.5],
+      "stake_late_claim_immediately": [0, 1],
+      "wait": [0, 0]
+    }
+  },
+  "dominant_strategies": {
+    "player_1": "stake_early_claim_immediately",
+    "player_2": "stake_late_claim_immediately",
+    "reasoning": "First mover advantage due to unprotected reward pool - claiming immediately maximizes payoff regardless of opponent strategy"
+  },
+  "nash_equilibria": [
+    {
+      "strategies": ["stake_early_claim_immediately", "stake_late_claim_immediately"],
+      "payoffs": [0.5, 0.5],
+      "type": "pure_strategy"
+    }
+  ],
+  "game_type": "simultaneous_move",
+  "information": "complete",
+  "vulnerability": "race_condition_on_reward_pool"
+}

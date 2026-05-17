@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gandy Frontend Test</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #0a0a0d;
+            color: #e5e5e5;
+        }
+        .status {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #1a4d2e;
+            border: 1px solid #2d7a4f;
+        }
+        .error {
+            background: #4d1a1a;
+            border: 1px solid #7a2d2d;
+        }
+        button {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #7c3aed;
+        }
+        pre {
+            background: #1a1a1f;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .log {
+            background: #1a1a1f;
+            padding: 15px;
+            border-radius: 6px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+        }
+        .log-success { color: #4ade80; }
+        .log-error { color: #f87171; }
+        .log-warning { color: #fbbf24; }
+        .log-info { color: #60a5fa; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Gandy Frontend Test</h1>
+    
+    <div id="backend-status" class="status">
+        <h3>Backend Status</h3>
+        <p>Checking...</p>
+    </div>
+
+    <div id="websocket-status" class="status">
+        <h3>WebSocket Status</h3>
+        <p>Not connected</p>
+    </div>
+
+    <div>
+        <h3>Actions</h3>
+        <button onclick="testBackend()">Test Backend API</button>
+        <button onclick="testWebSocket()">Test WebSocket</button>
+        <button onclick="startVerification()">Start Verification</button>
+        <button onclick="clearLogs()">Clear Logs</button>
+    </div>
+
+    <div>
+        <h3>Response Log</h3>
+        <div id="log" class="log"></div>
+    </div>
+
+    <div>
+        <h3>Frontend Files</h3>
+        <ul>
+            <li><a href="Gandy.html" target="_blank">Gandy.html</a></li>
+            <li><a href="Gandy.standalone-src.html" target="_blank">Gandy.standalone-src.html</a></li>
+            <li><a href="landingpage.html" target="_blank">landingpage.html</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+        const WS_URL = 'ws://localhost:8000';
+        let ws = null;
+
+        function addLog(message, type = 'info') {
+            const log = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function clearLogs() {
+            document.getElementById('log').innerHTML = '';
+            addLog('Logs cleared', 'info');
+        }
+
+        async function testBackend() {
+            addLog('Testing backend API...', 'info');
+            try {
+                const response = await fetch(`${API_URL}/api/health`);
+                const data = await response.json();
+                
+                const statusDiv = document.getElementById('backend-status');
+                if (data.status === 'healthy') {
+                    statusDiv.className = 'status success';
+                    statusDiv.innerHTML = `
+                        <h3>✅ Backend Status: HEALTHY</h3>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                    addLog('Backend API is healthy', 'success');
+                } else {
+                    throw new Error('Backend unhealthy');
+                }
+            } catch (error) {
+                const statusDiv = document.getElementById('backend-status');
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `
+                    <h3>❌ Backend Status: ERROR</h3>
+                    <p>${error.message}</p>
+                `;
+                addLog(`Backend error: ${error.message}`, 'error');
+            }
+        }
+
+        function testWebSocket() {
+            addLog('Connecting to WebSocket...', 'info');
+            
+            if (ws) {
+                ws.close();
+            }
+
+            ws = new WebSocket(`${WS_URL}/ws/verify/test-pr-1`);
+
+            ws.onopen = () => {
+                const statusDiv = document.getElementById('websocket-status');
+                statusDiv.className = 'status success';
+                statusDiv.innerHTML = '<h3>✅ WebSocket: CONNECTED</h3><p>Ready to receive events</p>';
+                addLog('WebSocket connected successfully', 'success');
+            };
+
+            ws.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    addLog(`Received: ${data.type} - ${JSON.stringify(data.data || {})}`, 'info');
+                    
+                    if (data.type === 'stage_complete') {
+                        addLog(`Stage complete: ${data.stage}`, 'success');
+                    } else if (data.type === 'error') {
+                        addLog(`Error: ${data.data.message}`, 'error');
+                    }
+                } catch (e) {
+                    addLog(`Parse error: ${e.message}`, 'error');
+                }
+            };
+
+            ws.onerror = (error) => {
+                const statusDiv = document.getElementById('websocket-status');
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = '<h3>❌ WebSocket: ERROR</h3><p>Connection failed</p>';
+                addLog('WebSocket error occurred', 'error');
+            };
+
+            ws.onclose = () => {
+                const statusDiv = document.getElementById('websocket-status');
+                statusDiv.className = 'status';
+                statusDiv.innerHTML = '<h3>WebSocket: DISCONNECTED</h3>';
+                addLog('WebSocket disconnected', 'warning');
+            };
+        }
+
+        async function startVerification() {
+            addLog('Starting verification...', 'info');
+            
+            try {
+                const response = await fetch(`${API_URL}/api/verify`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        pr_id: 'beanstalk-pr-1',
+                        repository_url: 'https://github.com/BeanstalkFarms/Beanstalk',
+                        pr_number: 1
+                    })
+                });
+
+                const data = await response.json();
+                addLog(`Verification started: Job ID ${data.job_id}`, 'success');
+                addLog('Now connect WebSocket to see real-time updates', 'info');
+            } catch (error) {
+                addLog(`Failed to start verification: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-test on load
+        window.onload = () => {
+            addLog('Page loaded - testing backend...', 'info');
+            testBackend();
+        };
+    </script>
+</body>
+</html>

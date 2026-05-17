@@ -1,0 +1,25 @@
+{
+  "equilibria_count": 1,
+  "equilibria": [
+    {
+      "player_1_strategy": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "player_2_strategy": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "payoffs": [
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "dominant_strategies": {
+    "player_1": "stake_early_claim_immediately",
+    "player_2": null
+  }
+}

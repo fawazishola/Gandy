@@ -1,0 +1,288 @@
+{
+  "verification_id": "test-14",
+  "repo_path": ".",
+  "start_time": "2026-05-16T18:18:03.128963",
+  "iterations": [
+    {
+      "iteration": 1,
+      "stages": [
+        {
+          "name": "repo_analysis",
+          "result": {
+            "session_id": "b9f2f0fd-f66c-4ebd-9a09-66a392556dd1",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0007283687591552734,
+            "command": "bob --repo . Analyze this repository and identify:\n1. Economic actors and their roles\n2. Available strategies for each actor\n3. Payoff structure for strategy combinations\n4. Any dominant or exploitable strategies\n\nReturn a comprehensive analysis.",
+            "timestamp": "2026-05-16T18:18:03.129172",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          }
+        },
+        {
+          "name": "z3_generation",
+          "result": {
+            "session_id": "bb17ac06-b26a-4a28-b987-f403aa5c219d",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0006079673767089844,
+            "command": "bob --repo . Based on the repository analysis, generate Z3 SMT-LIB constraints that encode:\n1. Mathematical invariants that must hold\n2. State transition rules\n3. Safety properties\n4. Liveness properties\n\nReturn ONLY the SMT2 specification, no explanation.",
+            "timestamp": "2026-05-16T18:18:03.130507",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          },
+          "z3_spec": null
+        },
+        {
+          "name": "game_model_generation",
+          "result": {
+            "session_id": "3170ae46-d819-45bb-9f37-40d7e4cd8f79",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.000568389892578125,
+            "command": "bob --repo . Based on the repository analysis, generate a game theory model with this EXACT JSON structure:\n{\n  \"players\": [\"player_1\", \"player_2\"],\n  \"strategies\": {\n    \"player_1\": [\"strategy_a\", \"strategy_b\"],\n    \"player_2\": [\"strategy_x\", \"strategy_y\"]\n  },\n  \"payoff_matrix\": {\n    \"strategy_a\": {\n      \"strategy_x\": [payoff_p1, payoff_p2],\n      \"strategy_y\": [payoff_p1, payoff_p2]\n    },\n    \"strategy_b\": {\n      \"strategy_x\": [payoff_p1, payoff_p2],\n      \"strategy_y\": [payoff_p1, payoff_p2]\n    }\n  },\n  \"dominant_strategies\": {\n    \"player_1\": \"strategy_name or null\",\n    \"player_2\": \"strategy_name or null\"\n  }\n}\n\nReturn ONLY valid JSON, nothing else.",
+            "timestamp": "2026-05-16T18:18:03.131703",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          },
+          "game_model": null
+        },
+        {
+          "name": "math_verification",
+          "results": {
+            "algebraic": {
+              "status": "failed",
+              "message": "No Z3 specification provided",
+              "details": {},
+              "counterexample": null
+            },
+            "differential": {
+              "status": "passed",
+              "message": "No differential checks required",
+              "details": {},
+              "counterexample": null
+            },
+            "stochastic": {
+              "status": "passed",
+              "message": "No stochastic checks required",
+              "details": {},
+              "counterexample": null
+            },
+            "financial": {
+              "status": "passed",
+              "message": "No financial checks required",
+              "details": {},
+              "counterexample": null
+            }
+          }
+        },
+        {
+          "name": "game_theory_verification",
+          "results": {}
+        },
+        {
+          "name": "patch_generation",
+          "result": {
+            "session_id": "e5868a13-1f53-43e5-9099-f23c6957c86a",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0005421638488769531,
+            "command": "bob --repo . The verification failed with these results:\n{\n  \"math\": {\n    \"algebraic\": {\n      \"status\": \"failed\",\n      \"message\": \"No Z3 specification provided\",\n      \"details\": {},\n      \"counterexample\": null\n    }\n  },\n  \"game_theory\": {}\n}\n\nGenerate a patch that fixes the vulnerabilities. Return JSON with:\n{\n  \"root_cause\": \"explanation\",\n  \"vulnerability\": \"description\",\n  \"patch_description\": \"what the patch does\",\n  \"patched_code\": \"complete fixed code\"\n}\n\nReturn ONLY valid JSON.",
+            "timestamp": "2026-05-16T18:18:03.132960",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          },
+          "patch": null
+        }
+      ],
+      "status": "patched"
+    },
+    {
+      "iteration": 2,
+      "stages": [
+        {
+          "name": "repo_analysis",
+          "result": {
+            "session_id": "a4268117-0602-4cdd-9688-12254db2abe5",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0005536079406738281,
+            "command": "bob --repo . Analyze this repository and identify:\n1. Economic actors and their roles\n2. Available strategies for each actor\n3. Payoff structure for strategy combinations\n4. Any dominant or exploitable strategies\n\nReturn a comprehensive analysis.",
+            "timestamp": "2026-05-16T18:18:03.134108",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          }
+        },
+        {
+          "name": "z3_generation",
+          "result": {
+            "session_id": "ababe214-9457-41d6-a603-0b042948d318",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0008528232574462891,
+            "command": "bob --repo . Based on the repository analysis, generate Z3 SMT-LIB constraints that encode:\n1. Mathematical invariants that must hold\n2. State transition rules\n3. Safety properties\n4. Liveness properties\n\nReturn ONLY the SMT2 specification, no explanation.",
+            "timestamp": "2026-05-16T18:18:03.135321",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          },
+          "z3_spec": null
+        },
+        {
+          "name": "game_model_generation",
+          "result": {
+            "session_id": "276b18a8-4f60-4aaf-a441-2f7b0968a54a",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0005612373352050781,
+            "command": "bob --repo . Based on the repository analysis, generate a game theory model with this EXACT JSON structure:\n{\n  \"players\": [\"player_1\", \"player_2\"],\n  \"strategies\": {\n    \"player_1\": [\"strategy_a\", \"strategy_b\"],\n    \"player_2\": [\"strategy_x\", \"strategy_y\"]\n  },\n  \"payoff_matrix\": {\n    \"strategy_a\": {\n      \"strategy_x\": [payoff_p1, payoff_p2],\n      \"strategy_y\": [payoff_p1, payoff_p2]\n    },\n    \"strategy_b\": {\n      \"strategy_x\": [payoff_p1, payoff_p2],\n      \"strategy_y\": [payoff_p1, payoff_p2]\n    }\n  },\n  \"dominant_strategies\": {\n    \"player_1\": \"strategy_name or null\",\n    \"player_2\": \"strategy_name or null\"\n  }\n}\n\nReturn ONLY valid JSON, nothing else.",
+            "timestamp": "2026-05-16T18:18:03.136948",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          },
+          "game_model": null
+        },
+        {
+          "name": "math_verification",
+          "results": {
+            "algebraic": {
+              "status": "failed",
+              "message": "No Z3 specification provided",
+              "details": {},
+              "counterexample": null
+            },
+            "differential": {
+              "status": "passed",
+              "message": "No differential checks required",
+              "details": {},
+              "counterexample": null
+            },
+            "stochastic": {
+              "status": "passed",
+              "message": "No stochastic checks required",
+              "details": {},
+              "counterexample": null
+            },
+            "financial": {
+              "status": "passed",
+              "message": "No financial checks required",
+              "details": {},
+              "counterexample": null
+            }
+          }
+        },
+        {
+          "name": "game_theory_verification",
+          "results": {}
+        },
+        {
+          "name": "patch_generation",
+          "result": {
+            "session_id": "616d88a0-db9f-4644-b3f8-a59938cdc326",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0005834102630615234,
+            "command": "bob --repo . The verification failed with these results:\n{\n  \"math\": {\n    \"algebraic\": {\n      \"status\": \"failed\",\n      \"message\": \"No Z3 specification provided\",\n      \"details\": {},\n      \"counterexample\": null\n    }\n  },\n  \"game_theory\": {}\n}\n\nGenerate a patch that fixes the vulnerabilities. Return JSON with:\n{\n  \"root_cause\": \"explanation\",\n  \"vulnerability\": \"description\",\n  \"patch_description\": \"what the patch does\",\n  \"patched_code\": \"complete fixed code\"\n}\n\nReturn ONLY valid JSON.",
+            "timestamp": "2026-05-16T18:18:03.138235",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          },
+          "patch": null
+        }
+      ],
+      "status": "patched"
+    },
+    {
+      "iteration": 3,
+      "stages": [
+        {
+          "name": "repo_analysis",
+          "result": {
+            "session_id": "7de0d22f-a3a7-4cd3-81cc-0fbf993c28cc",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0006120204925537109,
+            "command": "bob --repo . Analyze this repository and identify:\n1. Economic actors and their roles\n2. Available strategies for each actor\n3. Payoff structure for strategy combinations\n4. Any dominant or exploitable strategies\n\nReturn a comprehensive analysis.",
+            "timestamp": "2026-05-16T18:18:03.139416",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          }
+        },
+        {
+          "name": "z3_generation",
+          "result": {
+            "session_id": "c95804fc-bde3-4768-9db4-d96e574cba83",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0006608963012695312,
+            "command": "bob --repo . Based on the repository analysis, generate Z3 SMT-LIB constraints that encode:\n1. Mathematical invariants that must hold\n2. State transition rules\n3. Safety properties\n4. Liveness properties\n\nReturn ONLY the SMT2 specification, no explanation.",
+            "timestamp": "2026-05-16T18:18:03.140516",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          },
+          "z3_spec": null
+        },
+        {
+          "name": "game_model_generation",
+          "result": {
+            "session_id": "12e19ffd-dc37-4e91-b1e6-bac6a6ec8ebc",
+            "success": false,
+            "stdout": "",
+            "stderr": "",
+            "parsed": null,
+            "duration": 0.0007379055023193359,
+            "command": "bob --repo . Based on the repository analysis, generate a game theory model with this EXACT JSON structure:\n{\n  \"players\": [\"player_1\", \"player_2\"],\n  \"strategies\": {\n    \"player_1\": [\"strategy_a\", \"strategy_b\"],\n    \"player_2\": [\"strategy_x\", \"strategy_y\"]\n  },\n  \"payoff_matrix\": {\n    \"strategy_a\": {\n      \"strategy_x\": [payoff_p1, payoff_p2],\n      \"strategy_y\": [payoff_p1, payoff_p2]\n    },\n    \"strategy_b\": {\n      \"strategy_x\": [payoff_p1, payoff_p2],\n      \"strategy_y\": [payoff_p1, payoff_p2]\n    }\n  },\n  \"dominant_strategies\": {\n    \"player_1\": \"strategy_name or null\",\n    \"player_2\": \"strategy_name or null\"\n  }\n}\n\nReturn ONLY valid JSON, nothing else.",
+            "timestamp": "2026-05-16T18:18:03.141696",
+            "error": "Bob CLI not found. Ensure 'bob' is in PATH"
+          },
+          "game_model": null
+        },
+        {
+          "name": "math_verification",
+          "results": {
+            "algebraic": {
+              "status": "failed",
+              "message": "No Z3 specification provided",
+              "details": {},
+              "counterexample": null
+            },
+            "differential": {
+              "status": "passed",
+              "message": "No differential checks required",
+              "details": {},
+              "counterexample": null
+            },
+            "stochastic": {
+              "status": "passed",
+              "message": "No stochastic checks required",
+              "details": {},
+              "counterexample": null
+            },
+            "financial": {
+              "status": "passed",
+              "message": "No financial checks required",
+              "details": {},
+              "counterexample": null
+            }
+          }
+        },
+        {
+          "name": "game_theory_verification",
+          "results": {}
+        }
+      ],
+      "status": "max_iterations_reached"
+    }
+  ],
+  "end_time": "2026-05-16T18:18:03.142915",
+  "final_status": "failed"
+}

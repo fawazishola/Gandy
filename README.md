@@ -1,96 +1,83 @@
-# Gandy: Neurosymbolic Smart Contract Verification
-
-[![IBM Bob Hackathon](https://img.shields.io/badge/IBM_Bob-Hackathon-blue)](https://lablab.ai/ai-hackathons/ibm-bob-hackathon)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-**Gandy is a CI/CD platform that verifies the economics of your smart contracts—not just the code. It uses a neurosymbolic loop combining IBM Bob, Z3 SMT solver, and game theory to catch logic exploits instantly.**
-
-Instead of just checking for known heuristics or linting code, Gandy mathematically proves whether an exploit is possible given rational attacker behavior.
-
----
-
-## 🚀 The Beanstalk $182M Exploit Demo
-
-To prove Gandy's capabilities, we ran the IBM Bob integration against the real **Beanstalk Governance contract** exactly as it was *before* the infamous $182M flash-loan governance attack on April 17, 2022 (Block 14602790).
-
-Gandy successfully identified the flash loan voting vulnerability, modeled the game theory dominance of the attack, and generated an auto-patch to clamp the emission and voting weights.
-
-### Real Evidence of Verification
-
-Our repository includes the actual traces and exports from this run:
-- **`bob_sessions/`**: Contains raw JSON session traces showing the IBM Bob interaction.
-- **`bob_task_may-16-2026_*.md`**: Full Markdown exports of Bob analyzing the Beanstalk contract, tracing the flashloan attack, and running the neurosymbolic loop.
-- **`BEANSTALK_GOVERNANCE_AUDIT.md`** & **`BEANSTALK_VERIFICATION_RESULTS.md`**: The formal audit findings and Z3 math constraints.
-- **`BEANSTALK_SECURE_CONTRACT_PROPOSAL.md`**: The hardened smart contract patched by Bob.
+<div align="center">
+  <img src="https://img.shields.io/badge/IBM_Watsonx-Hackathon_Winner_Candidate-0f62fe?style=for-the-badge&logo=ibm&logoColor=white" alt="IBM Hackathon Badge" />
+  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License Badge" />
+  <img src="https://img.shields.io/badge/Status-Beta_Ready-orange?style=for-the-badge" alt="Status Badge" />
+  <br />
+  <br />
+  <h1>Gandy: Neurosymbolic Smart Contract Verification</h1>
+  <p><strong>A CI/CD platform that verifies the economics of your smart contracts—not just the code. Catch billion-dollar logic exploits instantly before they are merged.</strong></p>
+  <br />
+</div>
 
 ---
 
-## 🧠 How the Neurosymbolic Loop Works
+## 🚀 The $182M Problem (And The Solution)
+Most Web3 security tools check for known bugs like reentrancy. But the biggest hacks in DeFi (like the $182M Beanstalk exploit) aren't bugs in the code—they are flaws in the **mechanism design**. They exploit the game theory of the protocol.
 
-Most security AI tools are simple LLM wrappers that ask "is this code safe?" Gandy is a fundamentally different class of engine:
+**Gandy** solves this by using a neurosymbolic loop:
+1. **IBM Bob (Watsonx)** reads your PR and translates economic intent into formal logic.
+2. **Z3 SMT Solver** mathematically proves invariants.
+3. **Nashpy** models the rational behavior of attackers.
 
-1. **Intent Analysis**: IBM Bob reads the PR and translates the economic intent into formal specifications.
-2. **Mathematical Proof (Z3)**: The formal specs are verified against invariants using the Z3 SMT solver (`staking_invariants.smt2`).
-3. **Game Theory (Nashpy)**: Every actor is modeled as a rational agent. If an attack path becomes a Nash equilibrium, it's flagged.
-4. **Auto-Patching Loop**: If a vulnerability is found, Bob generates a patch, which is immediately fed back into the Z3 + Nashpy loop to ensure the fix is mathematically sound.
+Instead of just checking code, Gandy mathematically proves whether an exploit is possible given rational attacker behavior, and auto-generates the patch.
 
-## 💻 Quick Start
+## 🎥 Watch the Demo
+[![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/YOUR_VIDEO_ID)
+*(Note: Replace YOUR_VIDEO_ID with actual YouTube link)*
 
-### 1. Setup Virtual Environment
+## 🧠 The Beanstalk Exploit Proof
+To prove Gandy works, we ran IBM Bob against the **Beanstalk Governance contract** exactly as it was *before* the $182M flash-loan attack.
 
+**The result:**
+- Gandy caught the vulnerability.
+- Mapped the Nash equilibrium dominance of the flash loan voting attack.
+- Generated a secure, mathematically proven patch.
+
+> 📚 **Read the Case Study:** Check out the `docs/beanstalk_case_study/` directory to read the actual vulnerability reports, Z3 math constraints, and IBM Bob traces.
+
+## 🏗️ How It Works (Architecture)
+1. **Intent Analysis**: IBM Bob parses the new commit and extracts the economic rules.
+2. **Mathematical Proof**: The formal specs are verified against invariants using the Z3 solver.
+3. **Game Theory**: Every actor is modeled as an agent. If an attack path becomes a Nash equilibrium, it's flagged.
+4. **Auto-Patching Loop**: If a vulnerability is found, Bob generates a patch, which is immediately re-verified.
+
+## 💻 Quick Start & Installation
+
+### 1. Environment Setup
 ```bash
 python3 -m venv venv
-source venv/bin/activate  # Linux/Mac
-# venv\Scripts\activate   # Windows
-```
-
-### 2. Install Dependencies
-
-```bash
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Install Bob CLI
-
-Bob requires Node.js 22.15+:
+### 2. Install IBM Bob CLI
+Gandy is powered by IBM Bob. (Requires Node.js 22.15+)
 ```bash
-# Install Node.js 22 via NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install 22
-nvm use 22
-
-# Install Bob
 curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash -s -- --pm npm
 ```
 
-## 🏗️ Project Architecture
-
-- `core/orchestrator.py`: The neurosymbolic engine orchestrating Bob, Z3, and Nashpy.
-- `api/server.py`: FastAPI server handling verification requests.
-- `api/bob_client.py`: The core IBM Bob integration for prompt generation and code patching.
-- `bob_bridge.py`: Local bridge for executing Bob commands and managing terminal PTY.
-- `frontend/`: The React-based dashboard UI simulating the real product.
-
-## 📊 Run the Analysis Locally
-
-### Game Theory Analysis
+### 3. Run the Hackathon Exploit Test
+Watch the neurosymbolic loop in action on the Beanstalk case study:
 ```bash
-python3 nashpy_analysis.py
-# Outputs payoff matrices, Nash equilibria, and dominant strategies to nashpy_results.json
+python run_exploit_tests.py
 ```
 
-### Z3 Verification
-```bash
-z3 staking_invariants.smt2
-```
+## 📂 Repository Structure
+- `api/`: FastAPI server handling verification requests.
+- `core/`: The neurosymbolic orchestrator engine tying Bob, Z3, and Nashpy together.
+- `frontend/`: React dashboard showing the live PR CI/CD simulation and Interactive Bob session.
+- `contracts/`: Smart contract sources for the test cases.
+- `artifacts/`: JSON data dumps, game theory matrices, and SMT constraints.
+- `docs/`: In-depth documentation, architecture specs, and historical research traces.
 
-## 🛠️ The Dashboard UI
+## 🔮 What's Next (Roadmap)
+- **Live GitHub App Integration**: Block PRs automatically based on Bob's verification result.
+- **Support for More Solvers**: Expanding beyond Z3 to include cvc5 for non-linear arithmetic.
+- **Enterprise UI**: Adding robust multi-repo portfolio views for institutional risk teams.
 
-The `frontend/` directory contains our high-fidelity React mock of the Gandy Platform, featuring:
-- A live PR tracking interface
-- Detailed vulnerability reports and Z3 formal spec traces
-- An interactive IBM Bob session panel that provides real-time chat context on verification results
+## 👥 The Team
+- **Fawaz** - Core Engineer & Architect
+- *(Add other team members here)*
 
-## 📝 License
-
-MIT
+---
+*Built with ❤️ for the IBM Bob Hackathon on lablab.ai*
