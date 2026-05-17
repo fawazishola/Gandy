@@ -110,47 +110,47 @@ function LandingScreen({ onNavigate }) {
         </div>
         <div className="pricing-grid">
           <div className="tier">
-            <div className="tier-name">Builder</div>
-            <div className="tier-price">$2,400<small> / mo</small></div>
-            <div className="tier-desc">One protocol. Math + Nash equilibrium. Reports as PDF.</div>
+            <div className="tier-name">Community</div>
+            <div className="tier-price">$0<small> / month</small></div>
+            <div className="tier-desc">For open-source developers and solo builders exploring formal verification.</div>
             <ul className="tier-list">
-              <li><IconCheck size={11} /><span>1 repository · unlimited PRs</span></li>
-              <li><IconCheck size={11} /><span>3 math frameworks</span></li>
-              <li><IconCheck size={11} /><span>Nash equilibrium analysis</span></li>
-              <li><IconCheck size={11} /><span>Slack & email notifications</span></li>
+              <li><IconCheck size={11} /><span>Math layer only (Z3)</span></li>
+              <li><IconCheck size={11} /><span>10 Compute Hours / month</span></li>
+              <li><IconCheck size={11} /><span>Manual CLI trigger</span></li>
+              <li><IconCheck size={11} /><span>Community Discord support</span></li>
             </ul>
-            <button className="btn" onClick={() => alert("Request access is not connected in this local demo.")}>Request access</button>
+            <button className="btn" onClick={() => alert("Request access is not connected in this local demo.")}>Get Started Free</button>
           </div>
 
           <div className="tier featured">
             <span className="tier-badge">Most chosen</span>
             <div className="tier-name">Protocol</div>
-            <div className="tier-price">$9,800<small> / mo</small></div>
-            <div className="tier-desc">Up to 5 repositories. Full math + game-theory loop. API access. Bob session logs.</div>
+            <div className="tier-price">$2,500<small> / month</small></div>
+            <div className="tier-desc">For DeFi teams and protocol auditors who need continuous, automated verification in their pipeline.</div>
             <ul className="tier-list">
-              <li><IconCheck size={11} /><span>5 repositories</span></li>
-              <li><IconCheck size={11} /><span>All 11 analytical frameworks</span></li>
-              <li><IconCheck size={11} /><span>Auto-patch generation</span></li>
-              <li><IconCheck size={11} /><span>Custom risk thresholds</span></li>
-              <li><IconCheck size={11} /><span>API + webhook integrations</span></li>
-              <li><IconCheck size={11} /><span>PagerDuty + Jira</span></li>
+              <li><IconCheck size={11} /><span>Full neurosymbolic loop</span></li>
+              <li><IconCheck size={11} /><span>100 Compute Hours included</span></li>
+              <li><IconCheck size={11} /><span>Overage: $15 / hr</span></li>
+              <li><IconCheck size={11} /><span>CI/CD PR blocking + auto-patch</span></li>
+              <li><IconCheck size={11} /><span>Verification reports + Bob export</span></li>
+              <li><IconCheck size={11} /><span>Slack support</span></li>
             </ul>
-            <button className="btn btn-primary" onClick={() => alert("Request access is not connected in this local demo.")}>Request access</button>
+            <button className="btn btn-primary" onClick={() => alert("Request access is not connected in this local demo.")}>Start Free Trial</button>
           </div>
 
           <div className="tier">
             <div className="tier-name">Institutional</div>
             <div className="tier-price">Custom</div>
-            <div className="tier-desc">For funds, exchanges, and protocols managing &gt; $500M TVL. White-glove onboarding.</div>
+            <div className="tier-desc">For institutions, Layer-1s, and insurance protocols requiring compliance-grade verification at scale.</div>
             <ul className="tier-list">
+              <li><IconCheck size={11} /><span>Everything in Protocol</span></li>
               <li><IconCheck size={11} /><span>Unlimited repositories</span></li>
-              <li><IconCheck size={11} /><span>Custom verification profiles</span></li>
-              <li><IconCheck size={11} /><span>Signed reports for risk committee</span></li>
-              <li><IconCheck size={11} /><span>Bulk audit-archive export</span></li>
-              <li><IconCheck size={11} /><span>Granular role-based access</span></li>
-              <li><IconCheck size={11} /><span>24/7 on-call from Gandy team</span></li>
+              <li><IconCheck size={11} /><span>MiCA / SEC compliance pack</span></li>
+              <li><IconCheck size={11} /><span>Dedicated infrastructure</span></li>
+              <li><IconCheck size={11} /><span>Governance proposal verification</span></li>
+              <li><IconCheck size={11} /><span>1-hour SLA</span></li>
             </ul>
-            <button className="btn" onClick={() => alert("Contact form is not connected in this local demo.")}>Talk to us</button>
+            <button className="btn" onClick={() => alert("Contact form is not connected in this local demo.")}>Contact Sales</button>
           </div>
         </div>
       </section>

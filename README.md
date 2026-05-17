@@ -1,24 +1,47 @@
-# Gandy - Python Backend with Bob Integration
+# Gandy: Neurosymbolic Smart Contract Verification
 
-A Python backend system that integrates with IBM's Bob AI assistant for smart contract analysis, game theory modeling, and formal verification.
+[![IBM Bob Hackathon](https://img.shields.io/badge/IBM_Bob-Hackathon-blue)](https://lablab.ai/ai-hackathons/ibm-bob-hackathon)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Features
+**Gandy is a CI/CD platform that verifies the economics of your smart contracts—not just the code. It uses a neurosymbolic loop combining IBM Bob, Z3 SMT solver, and game theory to catch logic exploits instantly.**
 
-- **Bob CLI Integration**: Non-interactive command execution with JSON parsing
-- **Interactive Bob Terminal**: PTY-based terminal interface with real-time output
-- **Session Management**: All Bob interactions saved to `bob_sessions/` directory
-- **Smart Contract Analysis**: Game theory and formal verification tools
-- **Z3 SMT Solver Integration**: Mathematical invariant verification
+Instead of just checking for known heuristics or linting code, Gandy mathematically proves whether an exploit is possible given rational attacker behavior.
 
-## Installation
+---
+
+## 🚀 The Beanstalk $182M Exploit Demo
+
+To prove Gandy's capabilities, we ran the IBM Bob integration against the real **Beanstalk Governance contract** exactly as it was *before* the infamous $182M flash-loan governance attack on April 17, 2022 (Block 14602790).
+
+Gandy successfully identified the flash loan voting vulnerability, modeled the game theory dominance of the attack, and generated an auto-patch to clamp the emission and voting weights.
+
+### Real Evidence of Verification
+
+Our repository includes the actual traces and exports from this run:
+- **`bob_sessions/`**: Contains raw JSON session traces showing the IBM Bob interaction.
+- **`bob_task_may-16-2026_*.md`**: Full Markdown exports of Bob analyzing the Beanstalk contract, tracing the flashloan attack, and running the neurosymbolic loop.
+- **`BEANSTALK_GOVERNANCE_AUDIT.md`** & **`BEANSTALK_VERIFICATION_RESULTS.md`**: The formal audit findings and Z3 math constraints.
+- **`BEANSTALK_SECURE_CONTRACT_PROPOSAL.md`**: The hardened smart contract patched by Bob.
+
+---
+
+## 🧠 How the Neurosymbolic Loop Works
+
+Most security AI tools are simple LLM wrappers that ask "is this code safe?" Gandy is a fundamentally different class of engine:
+
+1. **Intent Analysis**: IBM Bob reads the PR and translates the economic intent into formal specifications.
+2. **Mathematical Proof (Z3)**: The formal specs are verified against invariants using the Z3 SMT solver (`staking_invariants.smt2`).
+3. **Game Theory (Nashpy)**: Every actor is modeled as a rational agent. If an attack path becomes a Nash equilibrium, it's flagged.
+4. **Auto-Patching Loop**: If a vulnerability is found, Bob generates a patch, which is immediately fed back into the Z3 + Nashpy loop to ensure the fix is mathematically sound.
+
+## 💻 Quick Start
 
 ### 1. Setup Virtual Environment
 
 ```bash
 python3 -m venv venv
-source venv/bin/activate  # On Linux/Mac
-# or
-venv\Scripts\activate  # On Windows
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate   # Windows
 ```
 
 ### 2. Install Dependencies
@@ -29,13 +52,10 @@ pip install -r requirements.txt
 
 ### 3. Install Bob CLI
 
-Bob requires Node.js 22.15+. If you need to upgrade:
-
+Bob requires Node.js 22.15+:
 ```bash
-# Install NVM
+# Install Node.js 22 via NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-# Install Node.js 22
 nvm install 22
 nvm use 22
 
@@ -43,144 +63,34 @@ nvm use 22
 curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash -s -- --pm npm
 ```
 
-## Project Structure
+## 🏗️ Project Architecture
 
-```
-Gandy/
-├── bob_bridge.py              # Bob CLI and terminal interface
-├── bob_sessions/              # Session logs (auto-created)
-├── staking_invariants.smt2    # Z3 SMT-LIB constraints
-├── staking_game_theory.json   # Game theory model
-├── nashpy_analysis.py         # Nash equilibrium analysis
-├── vulnerability_analysis.json # Vulnerability reports
-├── requirements.txt           # Python dependencies
-└── README.md                  # This file
-```
+- `core/orchestrator.py`: The neurosymbolic engine orchestrating Bob, Z3, and Nashpy.
+- `api/server.py`: FastAPI server handling verification requests.
+- `api/bob_client.py`: The core IBM Bob integration for prompt generation and code patching.
+- `bob_bridge.py`: Local bridge for executing Bob commands and managing terminal PTY.
+- `frontend/`: The React-based dashboard UI simulating the real product.
 
-## Usage
-
-### Non-Interactive Bob Execution
-
-```python
-from bob_bridge import run_bob
-
-# Simple query
-result = run_bob("What is the capital of France?")
-print(f"Success: {result['success']}")
-print(f"Output: {result['stdout']}")
-
-# With file context
-result = run_bob(
-    "Analyze this smart contract",
-    files=["contract.sol"],
-    repo="."
-)
-
-# Access parsed JSON (if Bob returns JSON)
-if result['parsed']:
-    print(result['parsed'])
-```
-
-### Interactive Bob Terminal
-
-```python
-from bob_bridge import BobTerminal
-import time
-
-def handle_output(text):
-    print(f"[BOB] {text}", end="")
-
-# Using context manager
-with BobTerminal(on_output=handle_output) as terminal:
-    terminal.send_input("Hello Bob!")
-    time.sleep(2)
-    terminal.send_input("Analyze this code")
-    time.sleep(2)
-
-# Manual control
-terminal = BobTerminal(on_output=handle_output)
-terminal.start(rows=24, cols=80)
-terminal.send_input("Your prompt here")
-terminal.resize(30, 100)
-terminal.stop()
-```
+## 📊 Run the Analysis Locally
 
 ### Game Theory Analysis
-
-```python
-# Run Nash equilibrium analysis
+```bash
 python3 nashpy_analysis.py
-
-# Output includes:
-# - Payoff matrices
-# - Nash equilibria
-# - Dominant strategies
-# - Results saved to nashpy_results.json
+# Outputs payoff matrices, Nash equilibria, and dominant strategies to nashpy_results.json
 ```
 
 ### Z3 Verification
-
 ```bash
-# Verify smart contract invariants
 z3 staking_invariants.smt2
 ```
 
-## Session Management
+## 🛠️ The Dashboard UI
 
-All Bob interactions are automatically saved to `bob_sessions/`:
+The `frontend/` directory contains our high-fidelity React mock of the Gandy Platform, featuring:
+- A live PR tracking interface
+- Detailed vulnerability reports and Z3 formal spec traces
+- An interactive IBM Bob session panel that provides real-time chat context on verification results
 
-- **Non-interactive sessions**: `{session_id}.json`
-- **Terminal sessions**: `{session_id}_terminal.json`
-
-Session files include:
-- Full command/input history
-- Timestamps
-- Output logs
-- Duration metrics
-- Error information
-
-## API Reference
-
-### `run_bob(prompt, files=[], repo=None)`
-
-Execute Bob CLI non-interactively.
-
-**Parameters:**
-- `prompt` (str): The question/prompt for Bob
-- `files` (list): Optional file paths for context
-- `repo` (str): Optional repository path
-
-**Returns:**
-- `dict` with keys: `success`, `stdout`, `stderr`, `parsed`, `duration`, `session_id`
-
-### `BobTerminal(on_output=None)`
-
-Interactive Bob terminal with PTY.
-
-**Methods:**
-- `start(rows=24, cols=80)`: Start terminal
-- `send_input(text)`: Send input to Bob
-- `resize(rows, cols)`: Resize terminal
-- `stop()`: Stop terminal and save session
-
-**Parameters:**
-- `on_output` (callable): Callback for output chunks
-
-## Examples
-
-See `bob_bridge.py` main section for complete examples.
-
-## Requirements
-
-- Python 3.8+
-- Node.js 22.15+
-- Bob CLI installed
-- Dependencies: ptyprocess, nashpy, numpy
-
-## License
+## 📝 License
 
 MIT
-
-## Contributing
-
-Contributions welcome! Please ensure all Bob sessions are properly logged.
