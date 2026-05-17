@@ -75,9 +75,6 @@ python run_exploit_tests.py
 - **Support for More Solvers**: Expanding beyond Z3 to include cvc5 for non-linear arithmetic.
 - **Enterprise UI**: Adding robust multi-repo portfolio views for institutional risk teams.
 
-## 👥 The Team
-- **Fawaz** - Core Engineer & Architect
-- *(Add other team members here)*
 
 ---
 *Built with ❤️ for the IBM Bob Hackathon on lablab.ai*
