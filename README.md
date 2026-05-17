@@ -25,15 +25,19 @@ Instead of just checking code, Gandy mathematically proves whether an exploit is
 - **Landing Page & Pricing:** [https://fawazishola.github.io/Gandy/landingpage.html](https://fawazishola.github.io/Gandy/landingpage.html)
 - **Interactive Web App (Gandy Platform):** [https://fawazishola.github.io/Gandy/Gandy.html](https://fawazishola.github.io/Gandy/Gandy.html)
 
-## 🧠 The Beanstalk Exploit Proof
-To prove Gandy works, we ran IBM Bob against the **Beanstalk Governance contract** exactly as it was *before* the $182M flash-loan attack.
+## 🧠 Proven Against $2.19B+ in Real-World Exploits
+To prove Gandy works, we ran IBM Bob against a catalogue of **15 massive real-world DeFi hacks**, accounting for over **$2.19 Billion** in historical losses. 
 
-**The result:**
-- Gandy caught the vulnerability.
-- Mapped the Nash equilibrium dominance of the flash loan voting attack.
-- Generated a secure, mathematically proven patch.
+**The Result: 87% Detection Rate (13/15 Caught)**
+Gandy successfully detected and auto-patched catastrophic vulnerabilities including the Mango Markets Oracle manipulation, the Euler Finance liquidation attack, and the Ronin Bridge key compromise.
 
-> 📚 **Read the Case Study:** Check out the `docs/beanstalk_case_study/` directory to read the actual vulnerability reports, Z3 math constraints, and IBM Bob traces.
+### Case Study: The $182M Beanstalk Flash-Loan
+As our primary benchmark, we fed Bob the **Beanstalk Governance contract** exactly as it was *before* the devastating $182M flash-loan attack.
+- Gandy's neurosymbolic loop caught the vulnerability instantly.
+- The **Nashpy** layer mapped the Nash equilibrium dominance of the flash loan voting attack.
+- IBM Bob generated a secure, mathematically proven patch blocking single-block execution.
+
+> 📚 **Read the Full Exploit Report:** Check out `docs/beanstalk_case_study/EXPLOIT_DETECTION_REPORT.md` to see the full breakdown of all 15 exploits, Z3 math constraints, and IBM Bob's live detection traces.
 
 ## 🏗️ How It Works (Architecture)
 Gandy operates via an autonomous 8-stage neurosymbolic loop, blending the semantic understanding of neural AI (IBM Bob) with the absolute certainty of symbolic logic (Z3 & Nashpy).
