@@ -36,10 +36,38 @@ To prove Gandy works, we ran IBM Bob against the **Beanstalk Governance contract
 > 📚 **Read the Case Study:** Check out the `docs/beanstalk_case_study/` directory to read the actual vulnerability reports, Z3 math constraints, and IBM Bob traces.
 
 ## 🏗️ How It Works (Architecture)
-1. **Intent Analysis**: IBM Bob parses the new commit and extracts the economic rules.
-2. **Mathematical Proof**: The formal specs are verified against invariants using the Z3 solver.
-3. **Game Theory**: Every actor is modeled as an agent. If an attack path becomes a Nash equilibrium, it's flagged.
-4. **Auto-Patching Loop**: If a vulnerability is found, Bob generates a patch, which is immediately re-verified.
+Gandy operates via an autonomous 8-stage neurosymbolic loop, blending the semantic understanding of neural AI (IBM Bob) with the absolute certainty of symbolic logic (Z3 & Nashpy).
+
+```mermaid
+graph TD
+    A[New PR / Smart Contract] -->|Triggers| B(IBM Bob: Intent Analysis)
+    B -->|Translates to SMT2| C{Z3 SMT Solver}
+    B -->|Translates to Games| D{Nashpy Matrix}
+    
+    C -->|Fails Invariants| E(Vulnerability Detected)
+    D -->|Nash Eq. = Exploit| E
+    C -->|Passes| F(Mathematical Safety)
+    D -->|Passes| F
+    
+    E -->|Context + Constraints| G(IBM Bob: Auto-Patching)
+    G -->|Applies Fix| H[Re-Verification Loop]
+    H -->|Loops max 3 times| B
+```
+
+### Leveraging Bob's Strengths in the Loop
+1. **Semantic Translation (The Missing Link)**: Pure mathematical solvers like Z3 can't read Solidity or human intent. IBM Bob bridges this gap by acting as a high-fidelity translator, reading the smart contract logic and writing strict formal `SMT2` constraints and game-theory payoff matrices.
+2. **Context-Aware Patching**: When Z3 or Nashpy flags a vulnerability (like a 50%+ dominance in an attack vector), Bob isn't just told "it failed". Bob receives the exact mathematical counter-example. Leveraging its LLM reasoning, Bob generates a hyper-targeted patch to close the economic exploit.
+3. **Iterative Learning**: Bob sits at the center of the CI/CD feedback loop, continuously re-generating and re-evaluating the contract until mathematical safety is achieved.
+
+## 🤖 Built by Bob: Our AI Co-Founder
+To prove the capability of IBM Bob, we didn't just use it in the architecture—**we used IBM Bob to build the entire system.** 
+Bob served as our Lead AI Engineer, logging over **150+ CLI interactions** to construct the verification framework.
+
+**How we used Bob in the build process:**
+- **Adversarial Security Testing**: Bob acted as a red-team agent, discovering 40 critical vulnerabilities (e.g., division by zero in the CVaR stochastic framework, edge cases in Nash equilibrium matrices) in our own pipeline.
+- **Architectural Scaffolding**: Bob generated the async, multi-threaded orchestrator that parallelizes the 8 math/game-theory verification frameworks.
+- **Documentation & Case Studies**: Bob generated the comprehensive Markdown documentation mapping the Beanstalk flash-loan exploit.
+*(Check `docs/architecture/TECHNICAL_SUMMARY.md` for the full log of Bob's contributions to the codebase).*
 
 ## 💻 Quick Start & Installation
 
