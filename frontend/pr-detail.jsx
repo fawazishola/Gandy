@@ -96,7 +96,6 @@ function usePipelineEngine(initialStatus, opts = {}) {
     sched(() => {
       setRun(r => ({ ...r, stage: 2 }));
       log(`<span class="tag">stage 3</span> math layer · executing 3 frameworks`);
-      // sequentially
       let off = 0;
       MATH_FW.forEach((fw, i) => {
         sched(() => {

@@ -3,6 +3,65 @@
 function LandingScreen({ onNavigate }) {
   return (
     <main className="landing">
+      <div className="ns-hero-video-wrap" style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '120vh', zIndex: 0, overflow: 'hidden'}}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="ns-hero-video"
+          src="./hero-video.mp4"
+          style={{width: '100%', height: '100%', objectFit: 'cover'}}
+        ></video>
+      </div>
+      <section className="ns-hero" style={{position: 'relative', zIndex: 10}}>
+        <div className="ns-hero-container">
+
+          <div className="ns-hero-text">
+            <h1>Develop 10x Faster with Gandy</h1>
+            <p>The ultimate CI/CD platform that verifies the economics of your smart contracts. Catch logic exploits instantly and ship DeFi protocols with mathematically proven security.</p>
+            <div className="ns-hero-cta">
+              <button className="btn btn-primary btn-lg" onClick={() => onNavigate("dashboard")}>
+                Connect Repository <IconChevRight size={14} />
+              </button>
+              <button className="btn btn-ghost btn-lg" onClick={() => alert("View Live Demo is not connected in this local demo.")}>
+                View Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="ns-logos">
+        <div className="ns-logos-container">
+          <div className="ns-logos-label">
+            <p>Powering the best teams</p>
+          </div>
+          <div className="ns-logos-track-wrap">
+            <div className="ns-logos-track">
+              <img src="https://cdn.simpleicons.org/ethereum/white" alt="Ethereum" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/solana/white" alt="Solana" style={{ height: 20 }} />
+              <img src="https://cdn.simpleicons.org/uniswap/white" alt="Uniswap" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/chainlink/white" alt="Chainlink" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/rust/white" alt="Rust" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/solidity/white" alt="Solidity" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/polygon/white" alt="Polygon" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/ethereum/white" alt="Ethereum" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/solana/white" alt="Solana" style={{ height: 20 }} />
+              <img src="https://cdn.simpleicons.org/uniswap/white" alt="Uniswap" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/chainlink/white" alt="Chainlink" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/rust/white" alt="Rust" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/solidity/white" alt="Solidity" style={{ height: 24 }} />
+              <img src="https://cdn.simpleicons.org/polygon/white" alt="Polygon" style={{ height: 24 }} />
+            </div>
+            <div className="ns-logos-fade left"></div>
+            <div className="ns-logos-fade right"></div>
+          </div>
+        </div>
+      </section>
+
       <section className="landing-hero">
         <span className="landing-eyebrow">
           <span className="pill">live</span>
