@@ -37,7 +37,7 @@ As our primary benchmark, we fed Bob the **Beanstalk Governance contract** exact
 - The **Nashpy** layer mapped the Nash equilibrium dominance of the flash loan voting attack.
 - IBM Bob generated a secure, mathematically proven patch blocking single-block execution.
 
-> 📚 **Read the Full Exploit Report:** Check out `docs/beanstalk_case_study/EXPLOIT_DETECTION_REPORT.md` to see the full breakdown of all 15 exploits, Z3 math constraints, and IBM Bob's live detection traces.
+> 📚 **Read the Full Exploit Report:** Check out `docs/EXPLOIT_DETECTION_REPORT.md` to see the full breakdown of all 15 exploits, Z3 math constraints, and IBM Bob's live detection traces.
 
 ## 🏗️ How It Works (Architecture)
 Gandy operates via an autonomous 8-stage neurosymbolic loop, blending the semantic understanding of neural AI (IBM Bob) with the absolute certainty of symbolic logic (Z3 & Nashpy).
