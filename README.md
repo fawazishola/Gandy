@@ -21,9 +21,9 @@ Most Web3 security tools check for known bugs like reentrancy. But the biggest h
 
 Instead of just checking code, Gandy mathematically proves whether an exploit is possible given rational attacker behavior, and auto-generates the patch.
 
-## 🎥 Watch the Demo
-[![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/YOUR_VIDEO_ID)
-*(Note: Replace YOUR_VIDEO_ID with actual YouTube link)*
+## 🌐 Live Demos
+- **Landing Page & Pricing:** [https://fawazishola.github.io/Gandy/landingpage.html](https://fawazishola.github.io/Gandy/landingpage.html)
+- **Interactive Web App (Gandy Platform):** [https://fawazishola.github.io/Gandy/Gandy.html](https://fawazishola.github.io/Gandy/Gandy.html)
 
 ## 🧠 The Beanstalk Exploit Proof
 To prove Gandy works, we ran IBM Bob against the **Beanstalk Governance contract** exactly as it was *before* the $182M flash-loan attack.
