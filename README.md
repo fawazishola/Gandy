@@ -60,14 +60,17 @@ graph TD
 3. **Iterative Learning**: Bob sits at the center of the CI/CD feedback loop, continuously re-generating and re-evaluating the contract until mathematical safety is achieved.
 
 ## 🤖 Built by Bob: Our AI Co-Founder
-To prove the capability of IBM Bob, we didn't just use it in the architecture—**we used IBM Bob to build the entire system.** 
-Bob served as our Lead AI Engineer, logging over **150+ CLI interactions** to construct the verification framework.
+To prove the capability of IBM Bob, we didn't just use it in the architecture—**we used IBM Bob to build the entire backend system.** 
+Bob served as our Lead AI Engineer, logging over **150+ CLI interactions** on May 16th to architect, build, and relentlessly attack the Gandy verification framework.
 
-**How we used Bob in the build process:**
-- **Adversarial Security Testing**: Bob acted as a red-team agent, discovering 40 critical vulnerabilities (e.g., division by zero in the CVaR stochastic framework, edge cases in Nash equilibrium matrices) in our own pipeline.
-- **Architectural Scaffolding**: Bob generated the async, multi-threaded orchestrator that parallelizes the 8 math/game-theory verification frameworks.
-- **Documentation & Case Studies**: Bob generated the comprehensive Markdown documentation mapping the Beanstalk flash-loan exploit.
-*(Check `docs/architecture/TECHNICAL_SUMMARY.md` for the full log of Bob's contributions to the codebase).*
+**How we used Bob across the entire development lifecycle:**
+- **Core Architecture & Scaffolding**: Bob single-handedly wrote `core/orchestrator.py` (the 8-stage verification loop), `bob_bridge.py` (the sub-process CLI controller), and `parser.py` (the multi-format SMT/JSON regex parser).
+- **Mathematical Frameworks Implementation**: Bob implemented all 8 backend verification engines entirely from scratch, including the **Z3/Algebraic** bindings, the **SymPy Differential** solver, the **Monte Carlo Stochastic** engine, and the **Nashpy** game theory calculators.
+- **Adversarial Security Testing (Red Teaming)**: Bob acted as a malicious red-team agent through 4 autonomous attack workflows, discovering **40 critical vulnerabilities** in our own mathematical pipelines (e.g., division by zero in CVaR stochastic calculations, unhandled edge cases in Nash equilibrium matrices, and unchecked payload structures).
+- **Automated Hardening (Blue Teaming)**: After discovering the 40 vulnerabilities, Bob switched contexts to auto-generate the exact defensive patches, rewriting `parser.py` and `core/types.py` with defensive type-checking and dictionary validation to protect the orchestration layer.
+- **Frontend Auditing**: Bob conducted a brutally honest code review (`FRONTEND_REVIEW.md`), diagnosing the disconnect between our React prototypes and the real Python backend, providing exact architecture maps (WebSocket/SSE) for real-time streaming integration.
+
+*(Check `docs/architecture/TECHNICAL_SUMMARY.md` and our tracked Bob task files for the full historical log of Bob's contributions to the codebase).*
 
 ## 💻 Quick Start & Installation
 
